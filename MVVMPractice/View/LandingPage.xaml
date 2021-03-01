@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:vm="clr-namespace:MVVMPractice.ViewModel"
              x:Class="MVVMPractice.View.LandingPage"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.BindingContext>
+        <vm:LandingViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid Margin="10, 5"
               BackgroundColor="#f0f8ff">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
-                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid Padding="0, 10"
                   HorizontalOptions="FillAndExpand"
@@ -41,26 +44,27 @@
             </Grid>
 
             <!--go check burger spot landing views-->
-            <CollectionView x:Name="optionsList" Margin="0,40,0,0" Grid.Row="1" ItemsSource="{Binding Burgers}" SelectionMode="Single" 
-                        SelectedItem="{Binding SelectedBurger}" VerticalScrollBarVisibility="Never" 
-                        SelectionChangedCommand="{Binding SelectionCommand}">
+            <CollectionView x:Name="optionsList"
+                            Margin="0,30,0,0"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Sections}"
+                            SelectionMode="Single" 
+                            SelectedItem="{Binding SelectedSection}"
+                            VerticalScrollBarVisibility="Never" 
+                            SelectionChangedCommand="{Binding SelectionCommand}">
             <CollectionView.ItemsLayout>
-                <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="20" HorizontalItemSpacing="20" Span="2"/>
+                <GridItemsLayout Orientation="Vertical"
+                                 VerticalItemSpacing="20"
+                                 HorizontalItemSpacing="20" Span="2"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10" BackgroundColor="#131313" WidthRequest="145" HeightRequest="160">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Image Aspect="AspectFill" Source="{Binding Image}" Margin="10" WidthRequest="125" HeightRequest="110" 
-                               HorizontalOptions="Center" VerticalOptions="Center"/>
-                        <Label Grid.Row="1" Text="{Binding Name}" TextColor="#F9B522" FontFamily="ThemeFont" 
-                               VerticalOptions="End" HorizontalOptions="Start"/>
-                        <Label Grid.Row="1" Text="{Binding Price, StringFormat='${0}'}" TextColor="White" FontFamily="ThemeFont"
-                               VerticalOptions="End" HorizontalOptions="End"/>
-                    </Grid>
+                    <Label Text="{Binding SectionName}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontFamily="LightFont"
+                            FontSize="15"
+                            TextColor="Black"/>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
             <CollectionView.Footer>
