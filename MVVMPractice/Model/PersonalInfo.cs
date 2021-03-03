@@ -16,6 +16,7 @@ namespace MVVMPractice.Model
         public string GithubLink { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string AboutMe { get; set; }
         public string[] MyFields { get; set; }
         public string[] HardSkills { get; set; }
         public string[] SoftSkills { get; set; }

@@ -10,6 +10,7 @@ namespace MVVMPractice.View
         public LandingPage()
         {
             InitializeComponent();
+            
         }
     }
 }

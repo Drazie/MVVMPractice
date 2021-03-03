@@ -43,7 +43,6 @@
                 </StackLayout>
             </Grid>
 
-            <!--go check burger spot landing views-->
             <CollectionView x:Name="optionsList"
                             Margin="0,30,0,0"
                             Grid.Row="1"
@@ -71,7 +70,6 @@
                 <Grid HeightRequest="0"/>
             </CollectionView.Footer>
         </CollectionView>
-
 
         </Grid>
     </ContentPage.Content>
