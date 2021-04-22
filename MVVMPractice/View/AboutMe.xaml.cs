@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace MVVMPractice.View
 {
-    public partial class GeneralInfoPage : ContentPage
+    public partial class AboutMe : ContentPage
     {
-        public GeneralInfoPage()
+        public AboutMe()
         {
             InitializeComponent();
         }
