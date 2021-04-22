@@ -2,8 +2,58 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVVMPractice.ViewModel"
     x:Class="MVVMPractice.View.ExperiencePage">
+    <ContentPage.BindingContext>
+        <vm:ExperienceViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
+        <Grid Margin="10, 5"
+              BackgroundColor="#f0f8ff">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Padding="0, 10"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand">
+               <Label Text="Experience section"
+               VerticalOptions="Start"
+               HorizontalOptions="Center"/>
+            </Grid>
+
+            <CollectionView x:Name="MyJobs"
+                            Margin="0,30,0,0"
+                            Grid.Row="1"
+                            ItemsSource="{Binding Experience}"
+                            SelectionMode="Single" 
+                            SelectedItem="{Binding SelectedJob}"
+                            VerticalScrollBarVisibility="Never" 
+                            SelectionChangedCommand="{Binding JobSelectionCommand}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 VerticalItemSpacing="20"
+                                 HorizontalItemSpacing="20" Span="2"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding JobTitle}"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            FontFamily="LightFont"
+                            FontSize="15"
+                            TextColor="Black"/>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Footer>
+                <Grid HeightRequest="0"/>
+            </CollectionView.Footer>
+        </CollectionView>
+
+        </Grid>
+
+
+
         
     </ContentPage.Content>
 </ContentPage>

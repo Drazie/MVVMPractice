@@ -12,6 +12,6 @@ namespace MVVMPractice.Model
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Responsibilities { get; set; }
-
+        public bool isCurrentlyWorking { get; set; }
     }
 }

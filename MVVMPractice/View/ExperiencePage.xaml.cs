@@ -10,6 +10,9 @@ namespace MVVMPractice.View
         public ExperiencePage()
         {
             InitializeComponent();
+
         }
+
+        
     }
 }

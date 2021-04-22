@@ -4,6 +4,19 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="MVVMPractice.View.AboutMe">
     <ContentPage.Content>
-        
+        <Grid BindingContext="{Binding PersonalInfo}">
+            <Label Text="About me"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontFamily="LightFont"
+                   FontSize="20"/>
+            <Label Text="{Binding AboutMe}"
+               FontFamily="LightFont"
+               FontSize="30"
+               FontAttributes="Bold"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               TextColor="Black"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

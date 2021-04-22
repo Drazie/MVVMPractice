@@ -2,8 +2,22 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:MVVMPractice.ViewModel"
     x:Class="MVVMPractice.View.JobDetailsPage">
+    <ContentPage.BindingContext>
+        <vm:JobDetailsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        
+        <StackLayout BindingContext="{Binding JobItem}">
+            <Label Text="{Binding CompanyName}"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Start"/>
+            <Label Text="{Binding JobTitle}"
+                   HorizontalOptions="Center"/>
+            <Label Text="{Binding StartDate, StringFormat='{0:MMMM dd, yyyy}'}"/>
+            <Label Text="{Binding EndDate, StringFormat='{0:MMMM dd, yyyy}'}"/>
+            <Label Text="{Binding Responsibilities}"
+                   FontAttributes="Italic"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

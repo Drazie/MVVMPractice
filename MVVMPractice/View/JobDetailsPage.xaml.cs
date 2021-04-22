@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using MVVMPractice.Model;
 using Xamarin.Forms;
 
 namespace MVVMPractice.View
